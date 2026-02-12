@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Anansh Pahwa · AI Automation Engineer</title>
+    <meta
+      name="description"
+      content="Portfolio of Anansh Pahwa – AI Automation Engineer building end-to-end AI-powered automations, agents, and workflows with n8n, LLMs, and real-world tools."
+    />
+
+    <!-- Tailwind CSS via CDN (environment requirement) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Tailwind CSS via CDN (runtime styling, matches user-specified snippet) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              accent: {
+                DEFAULT: '#8b5cf6',
+              },
+            },
+            boxShadow: {
+              'glow-accent': '0 0 40px rgba(139, 92, 246, 0.4)',
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-slate-950 text-slate-100 min-h-screen antialiased">
+    <!-- Global background glows -->
+    <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+      <div
+        class="absolute -top-32 -left-8 h-72 w-72 rounded-full bg-accent/30 blur-3xl opacity-70"
+      ></div>
+      <div
+        class="absolute top-1/3 -right-16 h-80 w-80 rounded-full bg-cyan-500/25 blur-3xl opacity-70"
+      ></div>
+      <div
+        class="absolute bottom-0 left-1/4 h-72 w-72 rounded-full bg-fuchsia-500/20 blur-3xl opacity-70"
+      ></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_#020617_0,_#020617_40%,_#020617_100%)]"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="sticky top-0 z-40 border-b border-slate-800/80 bg-slate-950/75 backdrop-blur-xl">
+      <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+        <a href="#hero" class="flex items-center gap-2">
+          <span
+            class="rounded-full border border-slate-800 bg-slate-950/80 px-3 py-1 text-xs font-mono tracking-tight text-slate-300 shadow-sm shadow-purple-500/10"
+          >
+            &gt; anansh.dev
+          </span>
+        </a>
+        <div class="flex items-center gap-6 text-xs font-mono uppercase tracking-[0.18em] text-slate-300">
+          <a href="#projects" class="hover:text-accent transition-colors">Projects</a>
+          <a href="#skills" class="hover:text-accent transition-colors">Skills</a>
+          <a href="#about" class="hover:text-accent transition-colors">About</a>
+          <a href="#contact" class="hover:text-accent transition-colors">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="relative">
+      <!-- Hero Section -->
+      <section id="hero" class="pt-10 pb-16 sm:pt-16 sm:pb-24">
+        <div class="mx-auto flex max-w-6xl flex-col gap-12 px-4 md:flex-row md:items-center">
+          <!-- Left: Text -->
+          <div class="flex-1">
+            <div
+              class="inline-flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900/70 px-3 py-1 text-[11px] font-mono uppercase tracking-[0.22em] text-slate-300 shadow-sm shadow-purple-500/20"
+            >
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.9)]"></span>
+              <span>AI Automation Engineer</span>
+            </div>
+
+            <h1 class="mt-6 text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+              Hi, I'm <span class="text-accent">Anansh</span> – I build
+              <span class="bg-gradient-to-r from-accent via-fuchsia-500 to-sky-400 bg-clip-text text-transparent">AI-powered automation systems</span>
+              with n8n.
+            </h1>
+
+            <p class="mt-5 max-w-xl text-sm leading-relaxed text-slate-300 sm:text-base">
+              I design and ship end-to-end workflows that automate email, SEO, job search, and conversational agents — connecting
+              LLMs with tools like Notion, Gmail, Telegram, and custom APIs so they deliver real business value, not just demos.
+            </p>
+
+            <!-- CTAs -->
+            <div class="mt-7 flex flex-wrap items-center gap-4">
+              <a
+                href="#projects"
+                class="group inline-flex items-center justify-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white shadow-glow-accent shadow-purple-500/40 transition hover:-translate-y-0.5 hover:bg-accent/90"
+              >
+                <span>View projects</span>
+                <span
+                  class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10 text-[11px] transition-transform group-hover:translate-x-0.5"
+                >
+                  ↓
+                </span>
+              </a>
+
+              <a
+                href="https://github.com/anansh14/ai-automation-projects"
+                target="_blank"
+                class="inline-flex items-center justify-center gap-2 rounded-full border border-slate-700 bg-slate-900/60 px-5 py-2.5 text-sm font-medium text-slate-100 shadow-sm shadow-purple-500/10 transition hover:-translate-y-0.5 hover:border-accent hover:text-accent"
+              >
+                <span>GitHub repo</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="h-4 w-4"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.22 14.78a.75.75 0 001.06 0L14 7.06v4.69a.75.75 0 001.5 0v-7a.75.75 0 00-.75-.75h-7a.75.75 0 000 1.5h4.69l-7.72 7.72a.75.75 0 000 1.06z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </div>
+
+            <!-- Quick stats / stack chips -->
+            <div class="mt-7 flex flex-wrap gap-3 text-[11px] font-mono text-slate-300">
+              <span class="rounded-full border border-slate-800 bg-slate-900/70 px-3 py-1">
+                n8n · Notion · Gmail · Telegram · HTTP APIs
+              </span>
+              <span class="rounded-full border border-slate-800 bg-slate-900/70 px-3 py-1">
+                LLM orchestration · JSON workflows · ETL
+              </span>
+            </div>
+          </div>
+
+          <!-- Right: Futuristic system console card -->
+          <div class="flex-1">
+            <div class="relative">
+              <div
+                class="pointer-events-none absolute -inset-0.5 rounded-3xl bg-gradient-to-br from-accent/60 via-fuchsia-500/40 to-sky-400/40 opacity-70 blur-3xl"
+              ></div>
+              <div
+                class="relative overflow-hidden rounded-3xl border border-slate-800/90 bg-slate-950/70 p-5 shadow-xl shadow-purple-500/30 backdrop-blur-xl"
+              >
+                <div class="flex items-center justify-between gap-3">
+                  <div class="flex items-center gap-2">
+                    <span class="flex h-2 w-2 gap-1">
+                      <span class="h-2 w-2 rounded-full bg-rose-500"></span>
+                      <span class="h-2 w-2 rounded-full bg-amber-400"></span>
+                      <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                    </span>
+                    <span class="text-[11px] font-mono text-slate-400">
+                      /systems/ai-automation-console
+                    </span>
+                  </div>
+                  <span
+                    class="inline-flex items-center gap-1 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-mono uppercase tracking-[0.16em] text-emerald-300"
+                  >
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,1)]"></span>
+                    Live
+                  </span>
+                </div>
+
+                <div class="mt-4 rounded-2xl border border-slate-800 bg-slate-950/60 p-3">
+                  <p class="text-[11px] font-mono text-slate-400">AUTOMATION STATUS · PROD</p>
+                  <div class="mt-3 space-y-2 text-[11px] font-mono">
+                    <div class="flex items-center justify-between gap-3">
+                      <span class="text-slate-300">Email triage → Notion CRM</span>
+                      <span class="flex items-center gap-1 text-emerald-400">
+                        ●
+                        <span class="text-[10px] uppercase tracking-wide">Healthy</span>
+                      </span>
+                    </div>
+                    <div class="flex items-center justify-between gap-3">
+                      <span class="text-slate-300">SEO audit engine → Google Sheets</span>
+                      <span class="flex items-center gap-1 text-amber-300">
+                        ●
+                        <span class="text-[10px] uppercase tracking-wide">Queued</span>
+                      </span>
+                    </div>
+                    <div class="flex items-center justify-between gap-3">
+                      <span class="text-slate-300">AI job agent → Telegram bot</span>
+                      <span class="flex items-center gap-1 text-emerald-400">
+                        ●
+                        <span class="text-[10px] uppercase tracking-wide">Streaming</span>
+                      </span>
+                    </div>
+                    <div class="flex items-center justify-between gap-3">
+                      <span class="text-slate-300">Book generator → Interactive reader</span>
+                      <span class="flex items-center gap-1 text-sky-300">
+                        ●
+                        <span class="text-[10px] uppercase tracking-wide">Generating</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4 grid grid-cols-3 gap-2 text-[11px] font-mono text-slate-300">
+                  <div class="rounded-xl border border-slate-800/80 bg-slate-950/60 p-2">
+                    <p class="text-[10px] uppercase tracking-[0.16em] text-slate-500">LLM calls / day</p>
+                    <p class="mt-1 text-lg font-semibold text-slate-50">10k+</p>
+                  </div>
+                  <div class="rounded-xl border border-slate-800/80 bg-slate-950/60 p-2">
+                    <p class="text-[10px] uppercase tracking-[0.16em] text-slate-500">Workflows</p>
+                    <p class="mt-1 text-lg font-semibold text-slate-50">20+</p>
+                  </div>
+                  <div class="rounded-xl border border-slate-800/80 bg-slate-950/60 p-2">
+                    <p class="text-[10px] uppercase tracking-[0.16em] text-slate-500">Latency</p>
+                    <p class="mt-1 text-lg font-semibold text-emerald-400">&lt; 2s</p>
+                  </div>
+                </div>
+
+                <div class="mt-4 flex items-center justify-between text-[11px] font-mono text-slate-500">
+                  <span>git@github.com:anansh14/ai-automation-projects</span>
+                  <span class="hidden sm:inline">branch: <span class="text-slate-300">main</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive 3D / Spline Section -->
+      <section class="pb-16 sm:pb-24">
+        <div class="mx-auto max-w-6xl px-4">
+          <div
+            class="relative overflow-hidden rounded-3xl border border-slate-800 bg-black/90 shadow-2xl shadow-purple-500/40"
+          >
+            <div
+              class="pointer-events-none absolute -top-40 right-0 h-72 w-72 rounded-full bg-accent/40 opacity-80 blur-3xl"
+            ></div>
+            <div
+              class="pointer-events-none absolute bottom-0 left-[-6rem] h-80 w-80 rounded-full bg-sky-500/30 opacity-80 blur-3xl"
+            ></div>
+
+            <div class="relative grid gap-6 md:grid-cols-2">
+              <!-- Text side -->
+              <div class="flex flex-col justify-center gap-4 p-8 sm:p-10 lg:p-12">
+                <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-accent">
+                  Interactive 3D
+                </p>
+                <h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">
+                  Bridging AI automations with <span class="text-accent">3D interfaces</span>.
+                </h2>
+                <p class="text-sm leading-relaxed text-slate-300 sm:text-base">
+                  I can integrate Spline-powered 3D scenes into dashboards and control panels, so users can visualize complex
+                  automations, agent states, or data flows in real time — all with lightweight, web-native components.
+                </p>
+                <ul class="mt-2 space-y-1 text-sm text-slate-300">
+                  <li class="flex items-start gap-2">
+                    <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
+                    <span>Embed live 3D canvases alongside AI workflows and status consoles.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
+                    <span>Use 3D scenes as interactive frontends for agents and tools.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
+                    <span>All built with the Spline web component — no React required.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Spline viewer side -->
+              <div class="relative min-h-[260px] overflow-hidden rounded-t-3xl md:rounded-t-none md:rounded-r-3xl">
+                <spline-viewer
+                  url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                  class="block h-full w-full"
+                  style="min-height: 100%;"
+                ></spline-viewer>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="pb-16 sm:pb-24">
+        <div class="mx-auto max-w-6xl px-4">
+          <div class="flex items-end justify-between gap-4">
+            <div>
+              <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-accent">
+                Featured projects
+              </p>
+              <h2 class="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
+                AI-driven automation systems
+              </h2>
+            </div>
+            <a
+              href="https://github.com/anansh14/ai-automation-projects"
+              target="_blank"
+              class="hidden text-xs font-mono uppercase tracking-[0.16em] text-slate-400 hover:text-accent md:inline-flex"
+            >
+              Browse repo →
+            </a>
+          </div>
+
+          <div class="mt-8 grid gap-6 md:grid-cols-2">
+            <!-- Project 1 -->
+            <article
+              class="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-lg shadow-purple-500/25 backdrop-blur-xl transition-transform transition-shadow hover:-translate-y-1 hover:border-accent hover:shadow-glow-accent"
+            >
+              <div
+                class="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-accent/20 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              ></div>
+              <h3 class="relative text-lg font-semibold text-slate-50">
+                AI Email Triage &amp; Notion Dashboard
+              </h3>
+              <p class="relative mt-2 text-sm text-slate-300">
+                Automatically classifies inbound emails, extracts key entities, and syncs structured insights into a Notion
+                workspace for fast prioritization.
+              </p>
+              <ul class="relative mt-4 space-y-1 text-sm text-slate-300">
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                  <span>IMAP ingestion, LLM-based triage, and Notion API for a single source of truth.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                  <span>Labels urgency, topic, and owner, then groups emails into actionable queues.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                  <span>Built as resilient n8n flows with retries and dead-letter queues.</span>
+                </li>
+              </ul>
+              <a
+                href="https://github.com/anansh14/ai-automation-projects/tree/main/ai-email-triage"
+                target="_blank"
+                class="relative mt-5 inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/90"
+              >
+                <span>View on GitHub</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="h-4 w-4"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.22 14.78a.75.75 0 001.06 0L14 7.06v4.69a.75.75 0 001.5 0v-7a.75.75 0 00-.75-.75h-7a.75.75 0 000 1.5h4.69l-7.72 7.72a.75.75 0 000 1.06z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </article>
+
+            <!-- Project 2 -->
+            <article
+              class="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-lg shadow-purple-500/25 backdrop-blur-xl transition-transform transition-shadow hover:-translate-y-1 hover:border-accent hover:shadow-glow-accent"
+            >
+              <div
+                class="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-accent/20 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              ></div>
+              <h3 class="relative text-lg font-semibold text-slate-50">
+                AI Book Generator &amp; Interactive Reader
+              </h3>
+              <p class="relative mt-2 text-sm text-slate-300">
+                Generates long-form, structured books from prompts and streams content into an interactive reading experience with
+                chapter-level navigation.
+              </p>
+              <ul class="relative mt-4 space-y-1 text-sm text-slate-300">
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-sky-400"></span>
+                  <span>Chunked generation with JSON schemas to keep chapters coherent and navigable.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-sky-400"></span>
+                  <span>Stores content in a structured data store for fast lookup and streaming.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-sky-400"></span>
+                  <span>Reader supports highlights, summaries, and question-answering over the text.</span>
+                </li>
+              </ul>
+              <a
+                href="https://github.com/anansh14/ai-automation-projects/tree/main/ai-book-generator"
+                target="_blank"
+                class="relative mt-5 inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/90"
+              >
+                <span>View on GitHub</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="h-4 w-4"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.22 14.78a.75.75 0 001.06 0L14 7.06v4.69a.75.75 0 001.5 0v-7a.75.75 0 00-.75-.75h-7a.75.75 0 000 1.5h4.69l-7.72 7.72a.75.75 0 000 1.06z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </article>
+
+            <!-- Project 3 -->
+            <article
+              class="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-lg shadow-purple-500/25 backdrop-blur-xl transition-transform transition-shadow hover:-translate-y-1 hover:border-accent hover:shadow-glow-accent"
+            >
+              <div
+                class="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-accent/20 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              ></div>
+              <h3 class="relative text-lg font-semibold text-slate-50">
+                AI-Driven Technical SEO Audit Engine
+              </h3>
+              <p class="relative mt-2 text-sm text-slate-300">
+                Crawls websites, inspects technical SEO signals, and produces prioritized, LLM-generated audit reports with clear
+                remediation steps.
+              </p>
+              <ul class="relative mt-4 space-y-1 text-sm text-slate-300">
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-amber-300"></span>
+                  <span>Custom web crawler pipelines feeding structured data into LLM analyzers.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-amber-300"></span>
+                  <span>Checks indexability, performance, metadata, internal links, and content gaps.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-amber-300"></span>
+                  <span>Outputs prioritized tasks with effort/impact scores into Sheets or Notion.</span>
+                </li>
+              </ul>
+              <a
+                href="https://github.com/anansh14/ai-automation-projects/tree/main/seo-audit-engine"
+                target="_blank"
+                class="relative mt-5 inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/90"
+              >
+                <span>View on GitHub</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="h-4 w-4"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.22 14.78a.75.75 0 001.06 0L14 7.06v4.69a.75.75 0 001.5 0v-7a.75.75 0 00-.75-.75h-7a.75.75 0 000 1.5h4.69l-7.72 7.72a.75.75 0 000 1.06z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </article>
+
+            <!-- Project 4 -->
+            <article
+              class="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-lg shadow-purple-500/25 backdrop-blur-xl transition-transform transition-shadow hover:-translate-y-1 hover:border-accent hover:shadow-glow-accent"
+            >
+              <div
+                class="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-accent/20 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              ></div>
+              <h3 class="relative text-lg font-semibold text-slate-50">
+                Autonomous &amp; Interactive AI Career Orchestrator
+              </h3>
+              <p class="relative mt-2 text-sm text-slate-300">
+                An autonomous agent system that searches, filters, and tracks roles, while drafting tailored outreach and keeping a
+                live career pipeline updated.
+              </p>
+              <ul class="relative mt-4 space-y-1 text-sm text-slate-300">
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-fuchsia-400"></span>
+                  <span>Scrapes job boards and career pages, normalizing postings into a unified schema.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-fuchsia-400"></span>
+                  <span>Uses LLMs to score fit, suggest positioning, and generate targeted outreach drafts.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-fuchsia-400"></span>
+                  <span>Integrates with Notion/Sheets for a live, sortable job search CRM.</span>
+                </li>
+              </ul>
+              <a
+                href="https://github.com/anansh14/ai-automation-projects/tree/main/career-orchestrator"
+                target="_blank"
+                class="relative mt-5 inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/90"
+              >
+                <span>View on GitHub</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="h-4 w-4"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.22 14.78a.75.75 0 001.06 0L14 7.06v4.69a.75.75 0 001.5 0v-7a.75.75 0 00-.75-.75h-7a.75.75 0 000 1.5h4.69l-7.72 7.72a.75.75 0 000 1.06z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </article>
+
+            <!-- Project 5 -->
+            <article
+              class="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-lg shadow-purple-500/25 backdrop-blur-xl transition-transform transition-shadow hover:-translate-y-1 hover:border-accent hover:shadow-glow-accent md:col-span-2"
+            >
+              <div
+                class="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-accent/20 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              ></div>
+              <h3 class="relative text-lg font-semibold text-slate-50">
+                Jarvis 2.0 – AI Telegram Chatbot
+              </h3>
+              <p class="relative mt-2 text-sm text-slate-300">
+                A production-ready Telegram bot that connects to LLMs, tools, and automations — acting as a conversational front-end
+                to your entire workflow stack.
+              </p>
+              <ul class="relative mt-4 space-y-1 text-sm text-slate-300">
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                  <span>Handles multi-turn conversations while routing tasks to n8n workflows.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                  <span>Connects to email, calendars, and external APIs as tools behind a single chat UI.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                  <span>Designed for low latency and safe tool execution with strong guardrails.</span>
+                </li>
+              </ul>
+              <a
+                href="https://github.com/anansh14/ai-automation-projects/tree/main/jarvis-telegram"
+                target="_blank"
+                class="relative mt-5 inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/90"
+              >
+                <span>View on GitHub</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="h-4 w-4"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.22 14.78a.75.75 0 001.06 0L14 7.06v4.69a.75.75 0 001.5 0v-7a.75.75 0 00-.75-.75h-7a.75.75 0 000 1.5h4.69l-7.72 7.72a.75.75 0 000 1.06z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="pb-16 sm:pb-24">
+        <div class="mx-auto max-w-6xl px-4">
+          <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-accent">
+            Skills
+          </p>
+          <h2 class="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
+            What I build AI automations with
+          </h2>
+
+          <div class="mt-8 grid gap-6 md:grid-cols-2">
+            <!-- Column 1 -->
+            <div class="rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-md shadow-purple-500/20">
+              <h3 class="text-sm font-semibold text-slate-100">
+                Automation &amp; Orchestration
+              </h3>
+              <p class="mt-2 text-sm text-slate-300">
+                Building robust, observable workflows that call the right tools at the right time.
+              </p>
+              <ul class="mt-4 space-y-2 text-sm text-slate-300">
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
+                  <span>n8n for visual orchestration, branching logic, and long-running jobs.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
+                  <span>IMAP, Gmail API, and webhooks for reliable email ingestion and actions.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
+                  <span>HTTP APIs, OAuth, and custom integrations for third-party tools.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
+                  <span>Web scraping pipelines for jobs, SEO data, and competitive research.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
+                  <span>Notion, Google Sheets, and databases as operational backends.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
+                  <span>Telegram bots and chat interfaces as real-time control surfaces.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
+                  <span>Cron-style and event-based scheduling for dependable automations.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-md shadow-purple-500/20">
+              <h3 class="text-sm font-semibold text-slate-100">LLMs &amp; Data</h3>
+              <p class="mt-2 text-sm text-slate-300">
+                Treating language models as components inside larger, data-aware systems.
+              </p>
+              <ul class="mt-4 space-y-2 text-sm text-slate-300">
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
+                  <span>Prompt engineering focused on reliability, safety, and tool-use.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
+                  <span>JSON schemas and function-calling to keep outputs structured.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
+                  <span>OpenRouter / OpenAI APIs and model selection for each use case.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
+                  <span>SEO &amp; NLP techniques for content audits, clustering, and summaries.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
+                  <span>ETL-style pipelines to move data between scrapers, LLMs, and stores.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
+                  <span>Logging, tracing, and evaluation to keep agents observable.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="pb-16 sm:pb-24">
+        <div class="mx-auto max-w-6xl px-4">
+          <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-accent">
+            About
+          </p>
+          <h2 class="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
+            Building real automation systems, not just models
+          </h2>
+          <p class="mt-4 max-w-3xl text-sm leading-relaxed text-slate-300 sm:text-base">
+            I come from a computer science / data science background, but I'm most interested in what happens after the model
+            call. That means wiring LLMs into robust workflows: handling raw email data, crawling websites for SEO, tracking job
+            pipelines, and building bots that actually ship value. I enjoy owning the full stack of an automation — from
+            orchestration and data plumbing to the interfaces humans use to monitor and steer it.
+          </p>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="pb-20 sm:pb-24">
+        <div class="mx-auto max-w-6xl px-4">
+          <div class="rounded-3xl border border-slate-800 bg-slate-950/80 p-6 shadow-lg shadow-purple-500/25 sm:p-8">
+            <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-accent">
+              Contact
+            </p>
+            <h2 class="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
+              Let's build something autonomous together
+            </h2>
+            <p class="mt-4 max-w-2xl text-sm leading-relaxed text-slate-300 sm:text-base">
+              I'm open to internships and junior roles in AI &amp; automation, as well as collaborations on interesting automation
+              problems. If you have email workflows, SEO processes, or agent ideas you want to bring to life, I'd love to talk.
+            </p>
+
+            <div class="mt-6 space-y-2 text-sm text-slate-200">
+              <p>
+                Email:
+                <a
+                  href="mailto:your.email@domain.com"
+                  class="font-medium text-accent hover:text-accent/90"
+                  >your.email@domain.com</a
+                >
+              </p>
+              <p>
+                GitHub:
+                <a
+                  href="https://github.com/anansh14"
+                  target="_blank"
+                  class="font-medium text-accent hover:text-accent/90"
+                  >github.com/anansh14</a
+                >
+              </p>
+            </div>
+          </div>
+
+          <footer class="mt-8 flex flex-col items-center justify-between gap-2 border-t border-slate-800/80 pt-4 text-xs text-slate-500 sm:flex-row">
+            <span>
+              © <span id="year">2024</span> Anansh Pahwa. All rights reserved.
+            </span>
+            <span class="font-mono text-[11px] uppercase tracking-[0.2em] text-slate-500">
+              Built with Tailwind CSS &amp; Spline
+            </span>
+          </footer>
+        </div>
+      </section>
+    </main>
+
+    <!-- Spline web viewer (web component, no React) -->
+    <script
+      type="module"
+      src="https://unpkg.com/@splinetool/viewer@1.0.93/build/spline-viewer.js"
+    ></script>
+
+    <!-- Minimal JS: dynamic year in footer -->
+    <script>
+      const yearEl = document.getElementById('year');
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
+    </script>
+  </body>
+</html>

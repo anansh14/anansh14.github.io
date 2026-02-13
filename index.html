@@ -3,15 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Anansh Pahwa · AI Automation Engineer</title>
+    <title>Anansh Pahwa · Data Science & Automation</title>
     <meta
       name="description"
-      content="Portfolio of Anansh Pahwa – AI Automation Engineer building end-to-end AI-powered automations, agents, and workflows with n8n, LLMs, and real-world tools."
+      content="Portfolio of Anansh Pahwa – Data Science Student building end-to-end AI-powered automations with n8n, Python, SQL, and LLMs."
     />
 
-    <!-- Tailwind CSS via CDN (environment requirement) -->
+    <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- Tailwind CSS via CDN (runtime styling, matches user-specified snippet) -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
@@ -20,202 +19,183 @@
           extend: {
             colors: {
               accent: {
-                DEFAULT: '#8b5cf6',
+                DEFAULT: '#8b5cf6', // Violet-500
               },
             },
             boxShadow: {
               'glow-accent': '0 0 40px rgba(139, 92, 246, 0.4)',
             },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            animation: {
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            }
           },
         },
       };
     </script>
+    
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+      body { font-family: 'Inter', sans-serif; }
+      .font-mono { font-family: 'JetBrains Mono', monospace; }
+      
+      /* Prevent FOUC (Flash of Unstyled Content) */
+      body { opacity: 0; transition: opacity 0.5s ease-in-out; }
+    </style>
   </head>
-  <body class="bg-slate-950 text-slate-100 min-h-screen antialiased">
+  <body class="bg-slate-950 text-slate-100 min-h-screen antialiased selection:bg-accent/30 selection:text-white">
+    
     <!-- Global background glows -->
     <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-      <div
-        class="absolute -top-32 -left-8 h-72 w-72 rounded-full bg-accent/30 blur-3xl opacity-70"
-      ></div>
-      <div
-        class="absolute top-1/3 -right-16 h-80 w-80 rounded-full bg-cyan-500/25 blur-3xl opacity-70"
-      ></div>
-      <div
-        class="absolute bottom-0 left-1/4 h-72 w-72 rounded-full bg-fuchsia-500/20 blur-3xl opacity-70"
-      ></div>
+      <div class="absolute -top-32 -left-8 h-72 w-72 rounded-full bg-accent/30 blur-3xl opacity-70"></div>
+      <div class="absolute top-1/3 -right-16 h-80 w-80 rounded-full bg-cyan-500/25 blur-3xl opacity-70"></div>
+      <div class="absolute bottom-0 left-1/4 h-72 w-72 rounded-full bg-fuchsia-500/20 blur-3xl opacity-70"></div>
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_#020617_0,_#020617_40%,_#020617_100%)]"></div>
     </div>
 
     <!-- Navigation -->
-    <header class="sticky top-0 z-40 border-b border-slate-800/80 bg-slate-950/75 backdrop-blur-xl">
+    <header class="sticky top-0 z-50 border-b border-slate-800/80 bg-slate-950/75 backdrop-blur-xl">
       <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <a href="#hero" class="flex items-center gap-2">
-          <span
-            class="rounded-full border border-slate-800 bg-slate-950/80 px-3 py-1 text-xs font-mono tracking-tight text-slate-300 shadow-sm shadow-purple-500/10"
-          >
+        <a href="#hero" class="flex items-center gap-2 group z-50">
+          <span class="rounded-full border border-slate-800 bg-slate-950/80 px-3 py-1 text-xs font-mono tracking-tight text-slate-300 shadow-sm shadow-purple-500/10 group-hover:border-accent/50 transition-colors">
             &gt; anansh.dev
           </span>
         </a>
-        <div class="flex items-center gap-6 text-xs font-mono uppercase tracking-[0.18em] text-slate-300">
-          <a href="#projects" class="hover:text-accent transition-colors">Projects</a>
-          <a href="#skills" class="hover:text-accent transition-colors">Skills</a>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center gap-6 text-xs font-mono uppercase tracking-[0.18em] text-slate-300">
           <a href="#about" class="hover:text-accent transition-colors">About</a>
+          <a href="#experience" class="hover:text-accent transition-colors">Experience</a>
+          <a href="#skills" class="hover:text-accent transition-colors">Skills</a>
+          <a href="#projects" class="hover:text-accent transition-colors">Projects</a>
           <a href="#contact" class="hover:text-accent transition-colors">Contact</a>
         </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none z-50">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
       </nav>
+
+      <!-- Mobile Dropdown -->
+      <div id="mobile-menu" class="fixed inset-0 z-40 bg-slate-950/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col items-center justify-center space-y-8">
+        <a href="#about" class="mobile-link text-xl font-mono uppercase tracking-[0.18em] text-slate-300 hover:text-accent">About</a>
+        <a href="#experience" class="mobile-link text-xl font-mono uppercase tracking-[0.18em] text-slate-300 hover:text-accent">Experience</a>
+        <a href="#skills" class="mobile-link text-xl font-mono uppercase tracking-[0.18em] text-slate-300 hover:text-accent">Skills</a>
+        <a href="#projects" class="mobile-link text-xl font-mono uppercase tracking-[0.18em] text-slate-300 hover:text-accent">Projects</a>
+        <a href="#contact" class="mobile-link text-xl font-mono uppercase tracking-[0.18em] text-slate-300 hover:text-accent">Contact</a>
+      </div>
     </header>
 
     <main class="relative">
-      <!-- Hero Section -->
-      <section id="hero" class="pt-10 pb-16 sm:pt-16 sm:pb-24">
+      
+      <!-- 1. Hero Section -->
+      <section id="hero" class="pt-12 pb-16 sm:pt-20 sm:pb-24 scroll-mt-24">
         <div class="mx-auto flex max-w-6xl flex-col gap-12 px-4 md:flex-row md:items-center">
           <!-- Left: Text -->
           <div class="flex-1">
-            <div
-              class="inline-flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900/70 px-3 py-1 text-[11px] font-mono uppercase tracking-[0.22em] text-slate-300 shadow-sm shadow-purple-500/20"
-            >
-              <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.9)]"></span>
-              <span>AI Automation Engineer</span>
+            <div class="inline-flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900/70 px-3 py-1 text-[11px] font-mono uppercase tracking-[0.22em] text-slate-300 shadow-sm shadow-purple-500/20">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.9)] animate-pulse-slow"></span>
+              <span>Data Science & Automation</span>
             </div>
 
-            <h1 class="mt-6 text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
-              Hi, I'm <span class="text-accent">Anansh</span> – I build
-              <span class="block text-slate-50">
-                AI-powered automation systems with n8n.
-              </span>
+            <!-- NAME (Big) -->
+            <h1 class="mt-6 text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl">
+              Hi, I'm <span class="text-accent">Anansh</span>.
             </h1>
 
-            <p class="mt-5 max-w-xl text-sm leading-relaxed text-slate-300 sm:text-base">
-              I design and ship end-to-end workflows that automate email, SEO, job search, and conversational agents — connecting
-              LLMs with tools like Notion, Gmail, Telegram, and custom APIs so they deliver real business value, not just demos.
+            <!-- PUN (Medium size) -->
+            <p class="mt-4 text-xl sm:text-2xl lg:text-3xl font-medium leading-relaxed text-slate-200">
+              I automate the boring stuff, <br />
+              <span class="text-accent/90">because life's too short for data entry.</span>
             </p>
 
             <!-- CTAs -->
-            <div class="mt-7 flex flex-wrap items-center gap-4">
-              <a
-                href="#projects"
-                class="group inline-flex items-center justify-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white shadow-glow-accent shadow-purple-500/40 transition hover:-translate-y-0.5 hover:bg-accent/90"
-              >
+            <div class="mt-8 flex flex-wrap items-center gap-4">
+              <a href="#projects" class="group inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white shadow-glow-accent shadow-purple-500/40 transition hover:-translate-y-0.5 hover:bg-accent/90">
                 <span>View projects</span>
-                <span
-                  class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10 text-[11px] transition-transform group-hover:translate-x-0.5"
-                >
-                  ↓
-                </span>
+                <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10 text-[11px] transition-transform group-hover:translate-x-0.5">↓</span>
               </a>
 
-              <a
-                href="https://github.com/anansh14/ai-automation-projects"
-                target="_blank"
-                class="inline-flex items-center justify-center gap-2 rounded-full border border-slate-700 bg-slate-900/60 px-5 py-2.5 text-sm font-medium text-slate-100 shadow-sm shadow-purple-500/10 transition hover:-translate-y-0.5 hover:border-accent hover:text-accent"
-              >
+              <a href="https://github.com/anansh14/ai-automation-projects" target="_blank" class="inline-flex items-center justify-center gap-2 rounded-full border border-slate-700 bg-slate-900/60 px-6 py-3 text-sm font-medium text-slate-100 shadow-sm shadow-purple-500/10 transition hover:-translate-y-0.5 hover:border-accent hover:text-accent">
                 <span>GitHub repo</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="h-4 w-4"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M5.22 14.78a.75.75 0 001.06 0L14 7.06v4.69a.75.75 0 001.5 0v-7a.75.75 0 00-.75-.75h-7a.75.75 0 000 1.5h4.69l-7.72 7.72a.75.75 0 000 1.06z"
-                    clip-rule="evenodd"
-                  />
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4">
+                  <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0L14 7.06v4.69a.75.75 0 001.5 0v-7a.75.75 0 00-.75-.75h-7a.75.75 0 000 1.5h4.69l-7.72 7.72a.75.75 0 000 1.06z" clip-rule="evenodd" />
                 </svg>
               </a>
             </div>
 
             <!-- Quick stats / stack chips -->
-            <div class="mt-7 flex flex-wrap gap-3 text-[11px] font-mono text-slate-300">
-              <span class="rounded-full border border-slate-800 bg-slate-900/70 px-3 py-1">
-                n8n · Notion · Gmail · Telegram · HTTP APIs
+            <div class="mt-8 flex flex-wrap gap-3 text-[11px] font-mono text-slate-300">
+              <span class="rounded-full border border-slate-800 bg-slate-900/70 px-3 py-1 text-slate-400 hover:border-slate-600 transition-colors">
+                <span class="text-accent">Python</span> · n8n · SQL · Java
               </span>
-              <span class="rounded-full border border-slate-800 bg-slate-900/70 px-3 py-1">
-                LLM orchestration · JSON workflows · ETL
+              <span class="rounded-full border border-slate-800 bg-slate-900/70 px-3 py-1 text-slate-400 hover:border-slate-600 transition-colors">
+                LLM orchestration · ETL Pipelines · R
               </span>
             </div>
           </div>
 
-          <!-- Right: Futuristic system console card -->
-          <div class="flex-1">
-            <div class="relative">
-              <div
-                class="pointer-events-none absolute -inset-0.5 rounded-3xl bg-gradient-to-br from-accent/60 via-fuchsia-500/40 to-sky-400/40 opacity-70 blur-3xl"
-              ></div>
-              <div
-                class="relative overflow-hidden rounded-3xl border border-slate-800/90 bg-slate-950/70 p-5 shadow-xl shadow-purple-500/30 backdrop-blur-xl"
-              >
-                <div class="flex items-center justify-between gap-3">
+          <!-- Right: System Console -->
+          <div class="flex-1 mt-12 md:mt-0 w-full">
+            <div class="relative w-full max-w-lg mx-auto md:mr-0">
+              <div class="pointer-events-none absolute -inset-0.5 rounded-3xl bg-gradient-to-br from-accent/60 via-fuchsia-500/40 to-sky-400/40 opacity-70 blur-3xl"></div>
+              <div class="relative overflow-hidden rounded-3xl border border-slate-800/90 bg-slate-950/80 p-5 shadow-2xl shadow-purple-500/20 backdrop-blur-xl">
+                <!-- Console Header -->
+                <div class="flex items-center justify-between gap-3 border-b border-slate-800/50 pb-3 mb-3">
                   <div class="flex items-center gap-2">
-                    <span class="flex h-2 w-2 gap-1">
-                      <span class="h-2 w-2 rounded-full bg-rose-500"></span>
-                      <span class="h-2 w-2 rounded-full bg-amber-400"></span>
-                      <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                    <span class="flex h-2 w-2 gap-1.5">
+                      <span class="h-2.5 w-2.5 rounded-full bg-rose-500/80"></span>
+                      <span class="h-2.5 w-2.5 rounded-full bg-amber-400/80"></span>
+                      <span class="h-2.5 w-2.5 rounded-full bg-emerald-400/80"></span>
                     </span>
-                    <span class="text-[11px] font-mono text-slate-400">
-                      /systems/ai-automation-console
-                    </span>
+                    <span class="ml-2 text-xs font-mono text-slate-400">~/systems/ai-console</span>
                   </div>
-                  <span
-                    class="inline-flex items-center gap-1 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-mono uppercase tracking-[0.16em] text-emerald-300"
-                  >
-                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,1)]"></span>
+                  <span class="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider text-emerald-300">
+                    <span class="animate-pulse h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
                     Live
                   </span>
                 </div>
 
-                <div class="mt-4 rounded-2xl border border-slate-800 bg-slate-950/60 p-3">
-                  <p class="text-[11px] font-mono text-slate-400">AUTOMATION STATUS · PROD</p>
-                  <div class="mt-3 space-y-2 text-[11px] font-mono">
-                    <div class="flex items-center justify-between gap-3">
-                      <span class="text-slate-300">Email triage → Notion CRM</span>
-                      <span class="flex items-center gap-1 text-emerald-400">
-                        ●
-                        <span class="text-[10px] uppercase tracking-wide">Healthy</span>
-                      </span>
-                    </div>
-                    <div class="flex items-center justify-between gap-3">
-                      <span class="text-slate-300">SEO audit engine → Google Sheets</span>
-                      <span class="flex items-center gap-1 text-amber-300">
-                        ●
-                        <span class="text-[10px] uppercase tracking-wide">Queued</span>
-                      </span>
-                    </div>
-                    <div class="flex items-center justify-between gap-3">
-                      <span class="text-slate-300">AI job agent → Telegram bot</span>
-                      <span class="flex items-center gap-1 text-emerald-400">
-                        ●
-                        <span class="text-[10px] uppercase tracking-wide">Streaming</span>
-                      </span>
-                    </div>
-                    <div class="flex items-center justify-between gap-3">
-                      <span class="text-slate-300">Book generator → Interactive reader</span>
-                      <span class="flex items-center gap-1 text-sky-300">
-                        ●
-                        <span class="text-[10px] uppercase tracking-wide">Generating</span>
-                      </span>
-                    </div>
+                <!-- Console Body (Animated Rows) -->
+                <div id="console-rows" class="space-y-3 font-mono text-xs">
+                  <div class="flex justify-between items-center p-2 rounded bg-slate-900/50 border border-slate-800/50 opacity-0 translate-y-4 transition-all duration-500">
+                    <span class="text-slate-300">Job Agent → Cover Letters</span>
+                    <span class="text-accent">● Generating</span>
+                  </div>
+                  <div class="flex justify-between items-center p-2 rounded bg-slate-900/50 border border-slate-800/50 opacity-0 translate-y-4 transition-all duration-500">
+                    <span class="text-slate-300">Email Triage → Notion CRM</span>
+                    <span class="text-emerald-400">● Healthy</span>
+                  </div>
+                  <div class="flex justify-between items-center p-2 rounded bg-slate-900/50 border border-slate-800/50 opacity-0 translate-y-4 transition-all duration-500">
+                    <span class="text-slate-300">SEO Audit → Google Sheets</span>
+                    <span class="text-amber-400">● Queued</span>
+                  </div>
+                  <div class="flex justify-between items-center p-2 rounded bg-slate-900/50 border border-slate-800/50 opacity-0 translate-y-4 transition-all duration-500">
+                    <span class="text-slate-300">ParisDB → PostgreSQL</span>
+                    <span class="text-sky-400">● Active</span>
                   </div>
                 </div>
 
-                <div class="mt-4 grid grid-cols-3 gap-2 text-[11px] font-mono text-slate-300">
-                  <div class="rounded-xl border border-slate-800/80 bg-slate-950/60 p-2">
-                    <p class="text-[10px] uppercase tracking-[0.16em] text-slate-500">LLM calls / day</p>
-                    <p class="mt-1 text-lg font-semibold text-slate-50">10k+</p>
+                <!-- Metrics -->
+                <div class="mt-4 grid grid-cols-3 gap-2 border-t border-slate-800/50 pt-4">
+                  <div class="text-center">
+                    <div class="text-[10px] uppercase tracking-wider text-slate-500">Requests</div>
+                    <div class="text-lg font-bold text-slate-100">10k+</div>
                   </div>
-                  <div class="rounded-xl border border-slate-800/80 bg-slate-950/60 p-2">
-                    <p class="text-[10px] uppercase tracking-[0.16em] text-slate-500">Workflows</p>
-                    <p class="mt-1 text-lg font-semibold text-slate-50">20+</p>
+                  <div class="text-center">
+                    <div class="text-[10px] uppercase tracking-wider text-slate-500">Flows</div>
+                    <div class="text-lg font-bold text-slate-100">20+</div>
                   </div>
-                  <div class="rounded-xl border border-slate-800/80 bg-slate-950/60 p-2">
-                    <p class="text-[10px] uppercase tracking-[0.16em] text-slate-500">Latency</p>
-                    <p class="mt-1 text-lg font-semibold text-emerald-400">&lt; 2s</p>
+                  <div class="text-center">
+                    <div class="text-[10px] uppercase tracking-wider text-slate-500">Latency</div>
+                    <div class="text-lg font-bold text-emerald-400">&lt;2s</div>
                   </div>
-                </div>
-
-                <div class="mt-4 flex items-center justify-between text-[11px] font-mono text-slate-500">
-                  <span>git@github.com:anansh14/ai-automation-projects</span>
-                  <span class="hidden sm:inline">branch: <span class="text-slate-300">main</span></span>
                 </div>
               </div>
             </div>
@@ -223,54 +203,65 @@
         </div>
       </section>
 
-      <!-- Interactive 3D / Spline Section -->
-      <section class="pb-16 sm:pb-24">
+      <!-- 2. About Me Section -->
+      <section id="about" class="pb-20 sm:pb-28 scroll-mt-24">
         <div class="mx-auto max-w-6xl px-4">
-          <div
-            class="relative overflow-hidden rounded-3xl border border-slate-800 bg-black/90 shadow-2xl shadow-purple-500/40"
-          >
-            <div
-              class="pointer-events-none absolute -top-40 right-0 h-72 w-72 rounded-full bg-accent/40 opacity-80 blur-3xl"
-            ></div>
-            <div
-              class="pointer-events-none absolute bottom-0 left-[-6rem] h-80 w-80 rounded-full bg-sky-500/30 opacity-80 blur-3xl"
-            ></div>
+          <p class="text-sm font-mono uppercase tracking-[0.2em] text-accent font-semibold">
+            About Me
+          </p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Data Science Student & Builder.
+          </h2>
+          
+          <div class="mt-6 max-w-3xl space-y-4 text-base leading-7 text-slate-300 sm:text-lg">
+            <p>
+              I am currently pursuing my Bachelor of Computer Science (Data Science) at <strong>Monash University</strong>.
+            </p>
+            <p>
+              While my academic focus is on <strong>algorithms, statistics, and data structures</strong>, my passion lies in applying that theory to build practical automations. I don't just study data. I use tools like n8n and Python to make data <em>do</em> things, bridging the gap between academic rigor and real-world execution.
+            </p>
+          </div>
+        </div>
+      </section>
 
-            <div class="relative grid gap-6 md:grid-cols-2">
+      <!-- 3. Interactive 3D Section -->
+      <section class="pb-20 sm:pb-28">
+        <div class="mx-auto max-w-6xl px-4">
+          <div class="relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-950/80 shadow-2xl shadow-purple-500/20">
+            <!-- Background blobs -->
+            <div class="pointer-events-none absolute -top-40 right-0 h-96 w-96 rounded-full bg-accent/20 opacity-60 blur-3xl"></div>
+            <div class="pointer-events-none absolute bottom-0 left-[-6rem] h-96 w-96 rounded-full bg-sky-500/20 opacity-60 blur-3xl"></div>
+
+            <div class="relative grid gap-8 md:grid-cols-2 items-center">
               <!-- Text side -->
-              <div class="flex flex-col justify-center gap-4 p-8 sm:p-10 lg:p-12">
-                <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-accent">
+              <div class="flex flex-col justify-center p-8 sm:p-12 order-2 md:order-1">
+                <p class="text-sm font-mono uppercase tracking-[0.2em] text-accent font-semibold">
                   Interactive 3D
                 </p>
-                <h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">
-                  Bridging AI automations with <span class="text-accent">3D interfaces</span>.
+                <h2 class="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                  Frontend meets <span class="text-accent">Agentic AI</span>.
                 </h2>
-                <p class="text-sm leading-relaxed text-slate-300 sm:text-base">
-                  I can integrate Spline-powered 3D scenes into dashboards and control panels, so users can visualize complex
-                  automations, agent states, or data flows in real time — all with lightweight, web-native components.
+                <p class="mt-4 text-base leading-relaxed text-slate-300">
+                  Automation shouldn't be a black box. I integrate Spline-powered 3D scenes into control panels. This gives users a visual way to interact with complex agent states and data flows in real time.
                 </p>
-                <ul class="mt-2 space-y-1 text-sm text-slate-300">
-                  <li class="flex items-start gap-2">
-                    <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
-                    <span>Embed live 3D canvases alongside AI workflows and status consoles.</span>
+                <ul class="mt-6 space-y-3 text-sm text-slate-300">
+                  <li class="flex items-start gap-3">
+                    <span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-accent shrink-0"></span>
+                    <span>Embed live 3D canvases alongside n8n workflows.</span>
                   </li>
-                  <li class="flex items-start gap-2">
-                    <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
-                    <span>Use 3D scenes as interactive frontends for agents and tools.</span>
-                  </li>
-                  <li class="flex items-start gap-2">
-                    <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
-                    <span>All built with the Spline web component — no React required.</span>
+                  <li class="flex items-start gap-3">
+                    <span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-accent shrink-0"></span>
+                    <span>Interactive frontends for headless agents.</span>
                   </li>
                 </ul>
               </div>
 
               <!-- Spline viewer side -->
-              <div class="relative min-h-[260px] overflow-hidden rounded-t-3xl md:rounded-t-none md:rounded-r-3xl">
+              <div class="relative h-[350px] w-full overflow-hidden md:h-[500px] md:rounded-r-3xl bg-black order-1 md:order-2">
                 <spline-viewer
+                  loading="lazy"
                   url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
                   class="block h-full w-full"
-                  style="min-height: 100%;"
                 ></spline-viewer>
               </div>
             </div>
@@ -278,441 +269,299 @@
         </div>
       </section>
 
-      <!-- Projects -->
-      <section id="projects" class="pb-16 sm:pb-24">
+      <!-- 4. Experience Section -->
+      <section id="experience" class="pb-20 sm:pb-28 scroll-mt-24">
+        <div class="mx-auto max-w-6xl px-4">
+           <p class="text-sm font-mono uppercase tracking-[0.2em] text-accent font-semibold">
+            Experience
+          </p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Professional History
+          </h2>
+
+          <div class="mt-10 space-y-12 border-l border-slate-800 ml-3 md:ml-0">
+            
+            <!-- Job 1: CENTELLI -->
+            <div class="relative pl-8 md:pl-10 group">
+               <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-accent ring-4 ring-slate-950 group-hover:ring-accent/20 transition-all"></div>
+               <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+                  <h3 class="text-xl font-bold text-slate-100">BI Intern</h3>
+                  <span class="text-xs font-mono text-slate-400 py-1 px-2 rounded border border-slate-800 bg-slate-900">Jan 2026 - Feb 2026</span>
+               </div>
+               <p class="text-sm font-medium text-accent">CENTELLI</p>
+               <p class="mt-3 text-sm leading-relaxed text-slate-300 max-w-3xl">
+                 Designed and published Power BI dashboards, performing ETL, data modeling, and DAX measures to visualize KPIs for internal teams. Built end‑to‑end automation solutions using n8n, including a Jobs Orchestrator with AI‑generated cover letters and a Technical SEO Audit Agent. Integrated web scraping, LLM analysis, and structured JSON pipelines into scalable workflows.
+               </p>
+               <div class="mt-3 flex flex-wrap gap-2">
+                  <span class="px-2 py-0.5 rounded bg-slate-800/60 text-[10px] font-mono text-slate-400">Power BI</span>
+                  <span class="px-2 py-0.5 rounded bg-slate-800/60 text-[10px] font-mono text-slate-400">n8n</span>
+                  <span class="px-2 py-0.5 rounded bg-slate-800/60 text-[10px] font-mono text-slate-400">DAX</span>
+               </div>
+            </div>
+
+            <!-- Job 2: C'Wealth Bank -->
+            <div class="relative pl-8 md:pl-10 group">
+               <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-slate-600 ring-4 ring-slate-950 group-hover:ring-slate-600/30 transition-all"></div>
+               <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+                  <h3 class="text-xl font-bold text-slate-100">Data Engineering Fellowship</h3>
+                  <span class="text-xs font-mono text-slate-400 py-1 px-2 rounded border border-slate-800 bg-slate-900">Dec 2024 - Jan 2025</span>
+               </div>
+               <p class="text-sm font-medium text-accent">Commonwealth Bank (Job Simulation)</p>
+               <p class="mt-3 text-sm leading-relaxed text-slate-300 max-w-3xl">
+                 Designed scalable data pipelines to aggregate and process large datasets. My focus was on optimizing decision-making workflows, ensuring privacy compliance, and structuring efficient database schemas for high-volume transactions.
+               </p>
+            </div>
+
+            <!-- Job 3: Treasurer -->
+            <div class="relative pl-8 md:pl-10 group">
+              <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-slate-600 ring-4 ring-slate-950 group-hover:ring-slate-600/30 transition-all"></div>
+              <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+                 <h3 class="text-xl font-bold text-slate-100">Treasurer, Executive Member</h3>
+                 <span class="text-xs font-mono text-slate-400 py-1 px-2 rounded border border-slate-800 bg-slate-900">Dec 2024 - Present</span>
+              </div>
+              <p class="text-sm font-medium text-accent">Monash University International Students' Service</p>
+              <p class="mt-3 text-sm leading-relaxed text-slate-300 max-w-3xl">
+                Managed logistics and budgeting for large-scale student events. Collaborated with a diverse team to organize cultural, social, and networking initiatives, engaging directly with students to gather feedback and improve future operations.
+              </p>
+           </div>
+
+             <!-- Job 4: Operations -->
+            <div class="relative pl-8 md:pl-10 group">
+               <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-slate-600 ring-4 ring-slate-950 group-hover:ring-slate-600/30 transition-all"></div>
+               <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+                  <h3 class="text-xl font-bold text-slate-100">Operations & Process Analyst (Intern)</h3>
+                  <span class="text-xs font-mono text-slate-400 py-1 px-2 rounded border border-slate-800 bg-slate-900">Nov 2023 - Present</span>
+               </div>
+               <p class="text-sm font-medium text-accent">Parkview Homes / KLG KIA / Pahwa Chains</p>
+               <p class="mt-3 text-sm leading-relaxed text-slate-300 max-w-3xl">
+                 Led process optimization initiatives across multiple operational roles. I identified bottlenecks in administrative workflows and implemented structured systems for documentation, financial tracking, and inventory management. This significantly reduced manual overhead.
+               </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Skills Section -->
+      <section id="skills" class="pb-20 sm:pb-28 scroll-mt-24">
+        <div class="mx-auto max-w-6xl px-4">
+          <p class="text-sm font-mono uppercase tracking-[0.2em] text-accent font-semibold">
+            Technical Stack
+          </p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Engineering & Automation Tools
+          </h2>
+
+          <div class="mt-10 grid gap-6 md:grid-cols-2">
+            <!-- Column 1: Core Engineering -->
+            <div class="rounded-2xl border border-slate-800 bg-slate-950/40 p-6 sm:p-8 hover:bg-slate-900/40 transition-colors">
+              <h3 class="text-lg font-semibold text-white flex items-center gap-2">
+                <svg class="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                Core Engineering & Data
+              </h3>
+              <p class="mt-2 text-sm text-slate-400">
+                Strong CS fundamentals enabling complex custom scripts and data processing.
+              </p>
+              <div class="mt-6 flex flex-wrap gap-2">
+                <span class="px-3 py-1 rounded-md bg-slate-800 text-xs font-mono text-sky-300">Python (Pandas)</span>
+                <span class="px-3 py-1 rounded-md bg-slate-800 text-xs font-mono text-sky-300">SQL</span>
+                <span class="px-3 py-1 rounded-md bg-slate-800 text-xs font-mono text-sky-300">Java (Basic)</span>
+                <span class="px-3 py-1 rounded-md bg-slate-800 text-xs font-mono text-sky-300">Power BI</span>
+                <span class="px-3 py-1 rounded-md bg-slate-800 text-xs font-mono text-sky-300">R & Tableau</span>
+                <span class="px-3 py-1 rounded-md bg-slate-800 text-xs font-mono text-sky-300">Git</span>
+              </div>
+            </div>
+
+            <!-- Column 2: Automation & AI -->
+            <div class="rounded-2xl border border-slate-800 bg-slate-950/40 p-6 sm:p-8 hover:bg-slate-900/40 transition-colors">
+              <h3 class="text-lg font-semibold text-white flex items-center gap-2">
+                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                AI & Orchestration
+              </h3>
+              <p class="mt-2 text-sm text-slate-400">
+                Building robust, observable agents that interact with the real world.
+              </p>
+              <div class="mt-6 flex flex-wrap gap-2">
+                <span class="px-3 py-1 rounded-md bg-slate-800 text-xs font-mono text-purple-300">n8n Workflows</span>
+                <span class="px-3 py-1 rounded-md bg-slate-800 text-xs font-mono text-purple-300">OpenAI API</span>
+                <span class="px-3 py-1 rounded-md bg-slate-800 text-xs font-mono text-purple-300">Web Scraping</span>
+                <span class="px-3 py-1 rounded-md bg-slate-800 text-xs font-mono text-purple-300">JSON Schemas</span>
+                <span class="px-3 py-1 rounded-md bg-slate-800 text-xs font-mono text-purple-300">Telegram Bots</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Projects Section -->
+      <section id="projects" class="pb-20 sm:pb-28 scroll-mt-24">
         <div class="mx-auto max-w-6xl px-4">
           <div class="flex items-end justify-between gap-4">
             <div>
-              <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-accent">
+              <p class="text-sm font-mono uppercase tracking-[0.2em] text-accent font-semibold">
                 Featured projects
               </p>
-              <h2 class="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
-                AI-driven automation systems
+              <h2 class="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                What I've Built
               </h2>
             </div>
-            <a
-              href="https://github.com/anansh14/ai-automation-projects"
-              target="_blank"
-              class="hidden text-xs font-mono uppercase tracking-[0.16em] text-slate-400 hover:text-accent md:inline-flex"
-            >
+            <a href="https://github.com/anansh14/ai-automation-projects" target="_blank" class="hidden text-xs font-mono uppercase tracking-[0.16em] text-slate-400 hover:text-accent md:inline-flex transition-colors">
               Browse repo →
             </a>
           </div>
 
-          <div class="mt-8 grid gap-6 md:grid-cols-2">
-            <!-- Project 1 -->
-            <article
-              class="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-lg shadow-purple-500/25 backdrop-blur-xl transition-transform transition-shadow hover:-translate-y-1 hover:border-accent hover:shadow-glow-accent"
-            >
-              <div
-                class="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-accent/20 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-              ></div>
-              <h3 class="relative text-lg font-semibold text-slate-50">
-                AI Email Triage &amp; Notion Dashboard
-              </h3>
-              <p class="relative mt-2 text-sm text-slate-300">
-                Automatically classifies inbound emails, extracts key entities, and syncs structured insights into a Notion
-                workspace for fast prioritization.
+          <div class="mt-10 grid gap-6 md:grid-cols-2">
+            <!-- Project 1: Email Triage -->
+            <article class="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/60 p-6 sm:p-8 hover:border-accent/50 transition-all hover:shadow-lg hover:shadow-purple-500/10">
+              <div class="flex gap-2 mb-4">
+                 <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[10px] font-mono text-slate-300">n8n</span>
+                 <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[10px] font-mono text-slate-300">OpenAI</span>
+                 <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[10px] font-mono text-slate-300">Notion API</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-50">AI Email Triage &amp; CRM Sync</h3>
+              <p class="mt-3 text-sm leading-relaxed text-slate-300">
+                Automatically classifies inbound emails, extracts key entities, and syncs structured insights into a Notion workspace for fast prioritization.
               </p>
-              <ul class="relative mt-4 space-y-1 text-sm text-slate-300">
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                  <span>IMAP ingestion, LLM-based triage, and Notion API for a single source of truth.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                  <span>Labels urgency, topic, and owner, then groups emails into actionable queues.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                  <span>Built as resilient n8n flows with retries and dead-letter queues.</span>
-                </li>
-              </ul>
-              <a
-                href="https://github.com/anansh14/ai-automation-projects/tree/main/ai-email-triage"
-                target="_blank"
-                class="relative mt-5 inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/90"
-              >
-                <span>View on GitHub</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="h-4 w-4"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M5.22 14.78a.75.75 0 001.06 0L14 7.06v4.69a.75.75 0 001.5 0v-7a.75.75 0 00-.75-.75h-7a.75.75 0 000 1.5h4.69l-7.72 7.72a.75.75 0 000 1.06z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </a>
             </article>
 
-            <!-- Project 2 -->
-            <article
-              class="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-lg shadow-purple-500/25 backdrop-blur-xl transition-transform transition-shadow hover:-translate-y-1 hover:border-accent hover:shadow-glow-accent"
-            >
-              <div
-                class="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-accent/20 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-              ></div>
-              <h3 class="relative text-lg font-semibold text-slate-50">
-                AI Book Generator &amp; Interactive Reader
-              </h3>
-              <p class="relative mt-2 text-sm text-slate-300">
-                Generates long-form, structured books from prompts and streams content into an interactive reading experience with
-                chapter-level navigation.
+             <!-- Project 2: Paris Transit DB -->
+            <article class="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/60 p-6 sm:p-8 hover:border-blue-500/50 transition-all hover:shadow-lg hover:shadow-blue-500/10">
+              <div class="flex gap-2 mb-4">
+                 <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[10px] font-mono text-slate-300">SQL</span>
+                 <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[10px] font-mono text-slate-300">DB Design</span>
+                 <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[10px] font-mono text-slate-300">Git</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-50">Paris Arrow Transit Database</h3>
+              <p class="mt-3 text-sm leading-relaxed text-slate-300">
+                Designed a complex Relational Database (ERD) for managing vehicles, drivers, and bookings for the Paris Olympic Games logistics. Optimized for data integrity and high-volume queries.
               </p>
-              <ul class="relative mt-4 space-y-1 text-sm text-slate-300">
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-sky-400"></span>
-                  <span>Chunked generation with JSON schemas to keep chapters coherent and navigable.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-sky-400"></span>
-                  <span>Stores content in a structured data store for fast lookup and streaming.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-sky-400"></span>
-                  <span>Reader supports highlights, summaries, and question-answering over the text.</span>
-                </li>
-              </ul>
-              <a
-                href="https://github.com/anansh14/ai-automation-projects/tree/main/ai-book-generator"
-                target="_blank"
-                class="relative mt-5 inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/90"
-              >
-                <span>View on GitHub</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="h-4 w-4"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M5.22 14.78a.75.75 0 001.06 0L14 7.06v4.69a.75.75 0 001.5 0v-7a.75.75 0 00-.75-.75h-7a.75.75 0 000 1.5h4.69l-7.72 7.72a.75.75 0 000 1.06z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </a>
             </article>
 
-            <!-- Project 3 -->
-            <article
-              class="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-lg shadow-purple-500/25 backdrop-blur-xl transition-transform transition-shadow hover:-translate-y-1 hover:border-accent hover:shadow-glow-accent"
-            >
-              <div
-                class="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-accent/20 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-              ></div>
-              <h3 class="relative text-lg font-semibold text-slate-50">
-                AI-Driven Technical SEO Audit Engine
-              </h3>
-              <p class="relative mt-2 text-sm text-slate-300">
-                Crawls websites, inspects technical SEO signals, and produces prioritized, LLM-generated audit reports with clear
-                remediation steps.
+            <!-- Project 3: SEO Engine -->
+            <article class="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/60 p-6 sm:p-8 hover:border-amber-500/50 transition-all hover:shadow-lg hover:shadow-amber-500/10">
+               <div class="flex gap-2 mb-4">
+                 <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[10px] font-mono text-slate-300">Python</span>
+                 <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[10px] font-mono text-slate-300">Scraping</span>
+                 <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[10px] font-mono text-slate-300">Google Sheets</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-50">AI-Driven SEO Audit Engine</h3>
+              <p class="mt-3 text-sm leading-relaxed text-slate-300">
+                Crawls websites to inspect technical SEO signals, then uses LLMs to generate prioritized audit reports with remediation steps, outputting directly to Sheets.
               </p>
-              <ul class="relative mt-4 space-y-1 text-sm text-slate-300">
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-amber-300"></span>
-                  <span>Custom web crawler pipelines feeding structured data into LLM analyzers.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-amber-300"></span>
-                  <span>Checks indexability, performance, metadata, internal links, and content gaps.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-amber-300"></span>
-                  <span>Outputs prioritized tasks with effort/impact scores into Sheets or Notion.</span>
-                </li>
-              </ul>
-              <a
-                href="https://github.com/anansh14/ai-automation-projects/tree/main/seo-audit-engine"
-                target="_blank"
-                class="relative mt-5 inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/90"
-              >
-                <span>View on GitHub</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="h-4 w-4"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M5.22 14.78a.75.75 0 001.06 0L14 7.06v4.69a.75.75 0 001.5 0v-7a.75.75 0 00-.75-.75h-7a.75.75 0 000 1.5h4.69l-7.72 7.72a.75.75 0 000 1.06z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </a>
             </article>
 
-            <!-- Project 4 -->
-            <article
-              class="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-lg shadow-purple-500/25 backdrop-blur-xl transition-transform transition-shadow hover:-translate-y-1 hover:border-accent hover:shadow-glow-accent"
-            >
-              <div
-                class="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-accent/20 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-              ></div>
-              <h3 class="relative text-lg font-semibold text-slate-50">
-                Autonomous &amp; Interactive AI Career Orchestrator
-              </h3>
-              <p class="relative mt-2 text-sm text-slate-300">
-                An autonomous agent system that searches, filters, and tracks roles, while drafting tailored outreach and keeping a
-                live career pipeline updated.
+            <!-- Project 4: AI Career Orchestrator -->
+            <article class="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/60 p-6 sm:p-8 hover:border-fuchsia-500/50 transition-all hover:shadow-lg hover:shadow-fuchsia-500/10">
+              <div class="flex gap-2 mb-4">
+                 <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[10px] font-mono text-slate-300">Python</span>
+                 <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[10px] font-mono text-slate-300">LLM Agents</span>
+                 <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[10px] font-mono text-slate-300">Notion API</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-50">Autonomous AI Career Orchestrator</h3>
+              <p class="mt-3 text-sm leading-relaxed text-slate-300">
+                An autonomous agent system that searches, filters, and tracks roles. It scrapes job boards to a unified schema, uses LLMs to score fit and generate outreach drafts, and syncs everything into a live, sortable Notion CRM.
               </p>
-              <ul class="relative mt-4 space-y-1 text-sm text-slate-300">
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-fuchsia-400"></span>
-                  <span>Scrapes job boards and career pages, normalizing postings into a unified schema.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-fuchsia-400"></span>
-                  <span>Uses LLMs to score fit, suggest positioning, and generate targeted outreach drafts.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-fuchsia-400"></span>
-                  <span>Integrates with Notion/Sheets for a live, sortable job search CRM.</span>
-                </li>
-              </ul>
-              <a
-                href="https://github.com/anansh14/ai-automation-projects/tree/main/career-orchestrator"
-                target="_blank"
-                class="relative mt-5 inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/90"
-              >
-                <span>View on GitHub</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="h-4 w-4"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M5.22 14.78a.75.75 0 001.06 0L14 7.06v4.69a.75.75 0 001.5 0v-7a.75.75 0 00-.75-.75h-7a.75.75 0 000 1.5h4.69l-7.72 7.72a.75.75 0 000 1.06z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </a>
             </article>
 
-            <!-- Project 5 -->
-            <article
-              class="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-lg shadow-purple-500/25 backdrop-blur-xl transition-transform transition-shadow hover:-translate-y-1 hover:border-accent hover:shadow-glow-accent md:col-span-2"
-            >
-              <div
-                class="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-accent/20 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-              ></div>
-              <h3 class="relative text-lg font-semibold text-slate-50">
-                Jarvis 2.0 – AI Telegram Chatbot
-              </h3>
-              <p class="relative mt-2 text-sm text-slate-300">
-                A production-ready Telegram bot that connects to LLMs, tools, and automations — acting as a conversational front-end
-                to your entire workflow stack.
+            <!-- Project 5: Jarvis -->
+            <article class="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/60 p-6 sm:p-8 hover:border-emerald-500/50 transition-all hover:shadow-lg hover:shadow-emerald-500/10 md:col-span-2">
+              <div class="flex gap-2 mb-4">
+                 <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[10px] font-mono text-slate-300">Telegram API</span>
+                 <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[10px] font-mono text-slate-300">n8n</span>
+                 <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[10px] font-mono text-slate-300">Agentic AI</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-50">Jarvis 2.0 – AI Telegram Chatbot</h3>
+              <p class="mt-3 text-sm leading-relaxed text-slate-300">
+                A production-ready Telegram bot that acts as a conversational front-end to your entire workflow stack. Handles multi-turn conversations and routes tasks to backend n8n agents securely.
               </p>
-              <ul class="relative mt-4 space-y-1 text-sm text-slate-300">
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                  <span>Handles multi-turn conversations while routing tasks to n8n workflows.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                  <span>Connects to email, calendars, and external APIs as tools behind a single chat UI.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                  <span>Designed for low latency and safe tool execution with strong guardrails.</span>
-                </li>
-              </ul>
-              <a
-                href="https://github.com/anansh14/ai-automation-projects/tree/main/jarvis-telegram"
-                target="_blank"
-                class="relative mt-5 inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/90"
-              >
-                <span>View on GitHub</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="h-4 w-4"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M5.22 14.78a.75.75 0 001.06 0L14 7.06v4.69a.75.75 0 001.5 0v-7a.75.75 0 00-.75-.75h-7a.75.75 0 000 1.5h4.69l-7.72 7.72a.75.75 0 000 1.06z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </a>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- Skills -->
-      <section id="skills" class="pb-16 sm:pb-24">
+      <!-- 7. Contact Section -->
+      <section id="contact" class="pb-16 sm:pb-20 scroll-mt-24">
         <div class="mx-auto max-w-6xl px-4">
-          <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-accent">
-            Skills
-          </p>
-          <h2 class="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
-            What I build AI automations with
-          </h2>
-
-          <div class="mt-8 grid gap-6 md:grid-cols-2">
-            <!-- Column 1 -->
-            <div class="rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-md shadow-purple-500/20">
-              <h3 class="text-sm font-semibold text-slate-100">
-                Automation &amp; Orchestration
-              </h3>
-              <p class="mt-2 text-sm text-slate-300">
-                Building robust, observable workflows that call the right tools at the right time.
-              </p>
-              <ul class="mt-4 space-y-2 text-sm text-slate-300">
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
-                  <span>n8n for visual orchestration, branching logic, and long-running jobs.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
-                  <span>IMAP, Gmail API, and webhooks for reliable email ingestion and actions.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
-                  <span>HTTP APIs, OAuth, and custom integrations for third-party tools.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
-                  <span>Web scraping pipelines for jobs, SEO data, and competitive research.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
-                  <span>Notion, Google Sheets, and databases as operational backends.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
-                  <span>Telegram bots and chat interfaces as real-time control surfaces.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
-                  <span>Cron-style and event-based scheduling for dependable automations.</span>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Column 2 -->
-            <div class="rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-md shadow-purple-500/20">
-              <h3 class="text-sm font-semibold text-slate-100">LLMs &amp; Data</h3>
-              <p class="mt-2 text-sm text-slate-300">
-                Treating language models as components inside larger, data-aware systems.
-              </p>
-              <ul class="mt-4 space-y-2 text-sm text-slate-300">
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
-                  <span>Prompt engineering focused on reliability, safety, and tool-use.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
-                  <span>JSON schemas and function-calling to keep outputs structured.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
-                  <span>OpenRouter / OpenAI APIs and model selection for each use case.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
-                  <span>SEO &amp; NLP techniques for content audits, clustering, and summaries.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
-                  <span>ETL-style pipelines to move data between scrapers, LLMs, and stores.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
-                  <span>Logging, tracing, and evaluation to keep agents observable.</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- About -->
-      <section id="about" class="pb-16 sm:pb-24">
-        <div class="mx-auto max-w-6xl px-4">
-          <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-accent">
-            About
-          </p>
-          <h2 class="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
-            Building real automation systems, not just models
-          </h2>
-          <p class="mt-4 max-w-3xl text-sm leading-relaxed text-slate-300 sm:text-base">
-            I come from a computer science / data science background, but I'm most interested in what happens after the model
-            call. That means wiring LLMs into robust workflows: handling raw email data, crawling websites for SEO, tracking job
-            pipelines, and building bots that actually ship value. I enjoy owning the full stack of an automation — from
-            orchestration and data plumbing to the interfaces humans use to monitor and steer it.
-          </p>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact" class="pb-20 sm:pb-24">
-        <div class="mx-auto max-w-6xl px-4">
-          <div class="rounded-3xl border border-slate-800 bg-slate-950/80 p-6 shadow-lg shadow-purple-500/25 sm:p-8">
-            <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-accent">
+          <div class="rounded-3xl border border-slate-800 bg-slate-950/80 p-8 sm:p-12 shadow-2xl shadow-purple-500/20 text-center sm:text-left">
+            <p class="text-sm font-mono uppercase tracking-[0.2em] text-accent font-semibold">
               Contact
             </p>
-            <h2 class="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
-              Let's build something autonomous together
+            <h2 class="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Let's build something autonomous.
             </h2>
-            <p class="mt-4 max-w-2xl text-sm leading-relaxed text-slate-300 sm:text-base">
-              I'm open to internships and junior roles in AI &amp; automation, as well as collaborations on interesting automation
-              problems. If you have email workflows, SEO processes, or agent ideas you want to bring to life, I'd love to talk.
+            <p class="mt-4 max-w-2xl text-base leading-relaxed text-slate-300 mx-auto sm:mx-0">
+              I'm open to internships and junior roles in AI &amp; automation. If you have email workflows, SEO processes, or agent ideas you want to bring to life, I'd love to talk.
             </p>
 
-            <div class="mt-6 space-y-2 text-sm text-slate-200">
-              <p>
-                Email:
-                <a
-                  href="mailto:your.email@domain.com"
-                  class="font-medium text-accent hover:text-accent/90"
-                  >your.email@domain.com</a
-                >
-              </p>
-              <p>
-                GitHub:
-                <a
-                  href="https://github.com/anansh14"
-                  target="_blank"
-                  class="font-medium text-accent hover:text-accent/90"
-                  >github.com/anansh14</a
-                >
-              </p>
+            <div class="mt-8 flex flex-col sm:flex-row gap-6 justify-center sm:justify-start">
+              <a href="mailto:ananshpahwa4@gmail.com" class="inline-flex items-center gap-2 text-slate-200 hover:text-accent transition-colors font-medium">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                ananshpahwa4@gmail.com
+              </a>
+              <a href="https://github.com/anansh14" target="_blank" class="inline-flex items-center gap-2 text-slate-200 hover:text-accent transition-colors font-medium">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                github.com/anansh14
+              </a>
+              <a href="https://in.linkedin.com/in/anansh-pahwa-91aa4a231" target="_blank" class="inline-flex items-center gap-2 text-slate-200 hover:text-accent transition-colors font-medium">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                LinkedIn
+              </a>
             </div>
           </div>
 
-          <footer class="mt-8 flex flex-col items-center justify-between gap-2 border-t border-slate-800/80 pt-4 text-xs text-slate-500 sm:flex-row">
+          <footer class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-800/80 pt-6 text-xs text-slate-500 sm:flex-row">
             <span>
-              © <span id="year">2024</span> Anansh Pahwa. All rights reserved.
+              © <span id="year">2024</span> Anansh Pahwa.
             </span>
-            <span class="font-mono text-[11px] uppercase tracking-[0.2em] text-slate-500">
-              Built with Tailwind CSS &amp; Spline
+            <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-slate-600 text-center sm:text-right">
+               BMBCh Computer Science (Data Science) @ Monash University
             </span>
           </footer>
         </div>
       </section>
     </main>
 
-    <!-- Spline web viewer (web component, no React) -->
-    <script
-      type="module"
-      src="https://unpkg.com/@splinetool/viewer@1.0.93/build/spline-viewer.js"
-    ></script>
+    <!-- Spline web viewer -->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.93/build/spline-viewer.js"></script>
 
-    <!-- Minimal JS: dynamic year in footer -->
+    <!-- Scripts -->
     <script>
+      // Dynamic Year
       const yearEl = document.getElementById('year');
       if (yearEl) {
         yearEl.textContent = new Date().getFullYear();
+      }
+
+      // Mobile Menu Toggle
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      const links = document.querySelectorAll('.mobile-link');
+
+      btn.addEventListener('click', () => {
+        menu.classList.toggle('translate-x-full');
+      });
+
+      // Close menu when clicking a link
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.add('translate-x-full');
+        });
+      });
+
+      // Prevent White Flash on Load
+      window.onload = function() {
+        document.body.style.opacity = '1';
+        startConsoleAnimation();
+      }
+
+      // Console Animation
+      function startConsoleAnimation() {
+        const consoleRows = document.querySelectorAll('#console-rows > div');
+        consoleRows.forEach((row, index) => {
+          setTimeout(() => {
+            row.classList.remove('opacity-0', 'translate-y-4');
+          }, 300 + (index * 600)); 
+        });
       }
     </script>
   </body>

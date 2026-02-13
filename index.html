@@ -9,7 +9,7 @@
       content="Portfolio of Anansh Pahwa – Data Science Student building end-to-end AI-powered automations with n8n, Python, SQL, and LLMs."
     />
 
-    <!-- Tailwind CSS via CDN (Standard Version Only) -->
+    <!-- Tailwind CSS (Standard CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
@@ -41,12 +41,31 @@
       body { font-family: 'Inter', sans-serif; }
       .font-mono { font-family: 'JetBrains Mono', monospace; }
       
-      /* Prevent FOUC (Flash of Unstyled Content) */
+      /* Prevent FOUC */
       body { opacity: 0; transition: opacity 0.5s ease-in-out; }
     </style>
   </head>
   <body class="bg-slate-950 text-slate-100 min-h-screen antialiased selection:bg-accent/30 selection:text-white overflow-x-hidden">
     
+    <!-- 1. MOBILE MENU OVERLAY (Moved OUT of Header to fix z-index issues) -->
+    <div id="mobile-menu" class="fixed inset-0 z-[9999] bg-slate-950 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col items-center justify-center">
+      <!-- Close Button (X) -->
+      <button id="close-menu-btn" class="absolute top-6 right-6 text-slate-400 hover:text-white">
+        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      
+      <!-- Mobile Links -->
+      <div class="flex flex-col space-y-8 text-center">
+        <a href="#about" class="mobile-link text-2xl font-mono uppercase tracking-[0.18em] text-slate-300 hover:text-accent transition-colors">About</a>
+        <a href="#experience" class="mobile-link text-2xl font-mono uppercase tracking-[0.18em] text-slate-300 hover:text-accent transition-colors">Experience</a>
+        <a href="#skills" class="mobile-link text-2xl font-mono uppercase tracking-[0.18em] text-slate-300 hover:text-accent transition-colors">Skills</a>
+        <a href="#projects" class="mobile-link text-2xl font-mono uppercase tracking-[0.18em] text-slate-300 hover:text-accent transition-colors">Projects</a>
+        <a href="#contact" class="mobile-link text-2xl font-mono uppercase tracking-[0.18em] text-slate-300 hover:text-accent transition-colors">Contact</a>
+      </div>
+    </div>
+
     <!-- Global background glows -->
     <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
       <div class="absolute -top-32 -left-8 h-72 w-72 rounded-full bg-accent/30 blur-3xl opacity-70"></div>
@@ -55,10 +74,9 @@
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_#020617_0,_#020617_40%,_#020617_100%)]"></div>
     </div>
 
-    <!-- Navigation -->
-    <header class="sticky top-0 z-[100] border-b border-slate-800/80 bg-slate-950/75 backdrop-blur-xl">
-      <!-- Added relative z-[102] to nav so logo and button stay ABOVE the menu overlay -->
-      <nav class="relative z-[102] mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 border-b border-slate-800/80 bg-slate-950/75 backdrop-blur-xl">
+      <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         <a href="#hero" class="flex items-center gap-2 group">
           <span class="rounded-full border border-slate-800 bg-slate-950/80 px-3 py-1 text-xs font-mono tracking-tight text-slate-300 shadow-sm shadow-purple-500/10 group-hover:border-accent/50 transition-colors">
             &gt; anansh.dev
@@ -74,25 +92,13 @@
           <a href="#contact" class="hover:text-accent transition-colors">Contact</a>
         </div>
 
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none p-2">
-          <!-- Icon changes based on menu state handled by script if desired, but standard hamburger is fine -->
+        <!-- Mobile Menu Open Button -->
+        <button id="open-menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none p-2">
           <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </nav>
-
-      <!-- Mobile Dropdown -->
-      <!-- CHANGED: bg-black to ensure full opacity so it covers the hero text -->
-      <!-- CHANGED: z-[101] to sit above everything else, but below the nav button -->
-      <div id="mobile-menu" class="fixed inset-0 z-[101] bg-black/95 backdrop-blur-2xl transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col items-center justify-center space-y-8">
-        <a href="#about" class="mobile-link text-xl font-mono uppercase tracking-[0.18em] text-slate-300 hover:text-accent">About</a>
-        <a href="#experience" class="mobile-link text-xl font-mono uppercase tracking-[0.18em] text-slate-300 hover:text-accent">Experience</a>
-        <a href="#skills" class="mobile-link text-xl font-mono uppercase tracking-[0.18em] text-slate-300 hover:text-accent">Skills</a>
-        <a href="#projects" class="mobile-link text-xl font-mono uppercase tracking-[0.18em] text-slate-300 hover:text-accent">Projects</a>
-        <a href="#contact" class="mobile-link text-xl font-mono uppercase tracking-[0.18em] text-slate-300 hover:text-accent">Contact</a>
-      </div>
     </header>
 
     <main class="relative">
@@ -537,13 +543,17 @@
       }
 
       // Mobile Menu Toggle
-      const btn = document.getElementById('mobile-menu-btn');
+      const openBtn = document.getElementById('open-menu-btn');
+      const closeBtn = document.getElementById('close-menu-btn');
       const menu = document.getElementById('mobile-menu');
       const links = document.querySelectorAll('.mobile-link');
 
-      btn.addEventListener('click', () => {
+      function toggleMenu() {
         menu.classList.toggle('translate-x-full');
-      });
+      }
+
+      openBtn.addEventListener('click', toggleMenu);
+      closeBtn.addEventListener('click', toggleMenu);
 
       // Close menu when clicking a link
       links.forEach(link => {

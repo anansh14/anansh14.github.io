@@ -9,8 +9,7 @@
       content="Portfolio of Anansh Pahwa – Data Science Student building end-to-end AI-powered automations with n8n, Python, SQL, and LLMs."
     />
 
-    <!-- Tailwind CSS via CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Tailwind CSS via CDN (Standard Version Only) -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
@@ -58,8 +57,9 @@
 
     <!-- Navigation -->
     <header class="sticky top-0 z-[100] border-b border-slate-800/80 bg-slate-950/75 backdrop-blur-xl">
-      <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <a href="#hero" class="flex items-center gap-2 group z-[101]">
+      <!-- Added relative z-[102] to nav so logo and button stay ABOVE the menu overlay -->
+      <nav class="relative z-[102] mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+        <a href="#hero" class="flex items-center gap-2 group">
           <span class="rounded-full border border-slate-800 bg-slate-950/80 px-3 py-1 text-xs font-mono tracking-tight text-slate-300 shadow-sm shadow-purple-500/10 group-hover:border-accent/50 transition-colors">
             &gt; anansh.dev
           </span>
@@ -75,7 +75,8 @@
         </div>
 
         <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none z-[101]">
+        <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none p-2">
+          <!-- Icon changes based on menu state handled by script if desired, but standard hamburger is fine -->
           <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -83,7 +84,9 @@
       </nav>
 
       <!-- Mobile Dropdown -->
-      <div id="mobile-menu" class="fixed inset-0 z-[90] bg-slate-950/98 backdrop-blur-2xl transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col items-center justify-center space-y-8">
+      <!-- CHANGED: bg-black to ensure full opacity so it covers the hero text -->
+      <!-- CHANGED: z-[101] to sit above everything else, but below the nav button -->
+      <div id="mobile-menu" class="fixed inset-0 z-[101] bg-black/95 backdrop-blur-2xl transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col items-center justify-center space-y-8">
         <a href="#about" class="mobile-link text-xl font-mono uppercase tracking-[0.18em] text-slate-300 hover:text-accent">About</a>
         <a href="#experience" class="mobile-link text-xl font-mono uppercase tracking-[0.18em] text-slate-300 hover:text-accent">Experience</a>
         <a href="#skills" class="mobile-link text-xl font-mono uppercase tracking-[0.18em] text-slate-300 hover:text-accent">Skills</a>
@@ -287,7 +290,6 @@
                <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-accent ring-4 ring-slate-950 group-hover:ring-accent/20 transition-all"></div>
                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-2 sm:mb-0">
                   <h3 class="text-xl font-bold text-slate-100">BI Intern</h3>
-                  <!-- Added w-fit and mt-1 for mobile fix -->
                   <span class="w-fit mt-1 sm:mt-0 text-xs font-mono text-slate-400 py-1 px-2 rounded border border-slate-800 bg-slate-900">Jan 2026 - Feb 2026</span>
                </div>
                <p class="text-sm font-medium text-accent">CENTELLI</p>
@@ -306,7 +308,6 @@
                <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-slate-600 ring-4 ring-slate-950 group-hover:ring-slate-600/30 transition-all"></div>
                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-2 sm:mb-0">
                   <h3 class="text-xl font-bold text-slate-100">Data Engineering Fellowship</h3>
-                  <!-- Added w-fit and mt-1 for mobile fix -->
                   <span class="w-fit mt-1 sm:mt-0 text-xs font-mono text-slate-400 py-1 px-2 rounded border border-slate-800 bg-slate-900">Dec 2024 - Jan 2025</span>
                </div>
                <p class="text-sm font-medium text-accent">Commonwealth Bank (Job Simulation)</p>
@@ -320,7 +321,6 @@
               <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-slate-600 ring-4 ring-slate-950 group-hover:ring-slate-600/30 transition-all"></div>
               <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-2 sm:mb-0">
                  <h3 class="text-xl font-bold text-slate-100">Treasurer, Executive Member</h3>
-                 <!-- Added w-fit and mt-1 for mobile fix -->
                  <span class="w-fit mt-1 sm:mt-0 text-xs font-mono text-slate-400 py-1 px-2 rounded border border-slate-800 bg-slate-900">Dec 2024 - Present</span>
               </div>
               <p class="text-sm font-medium text-accent">Monash University International Students' Service</p>
@@ -334,7 +334,6 @@
                <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-slate-600 ring-4 ring-slate-950 group-hover:ring-slate-600/30 transition-all"></div>
                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-2 sm:mb-0">
                   <h3 class="text-xl font-bold text-slate-100">Operations & Process Analyst (Intern)</h3>
-                  <!-- Added w-fit and mt-1 for mobile fix -->
                   <span class="w-fit mt-1 sm:mt-0 text-xs font-mono text-slate-400 py-1 px-2 rounded border border-slate-800 bg-slate-900">Nov 2023 - Present</span>
                </div>
                <p class="text-sm font-medium text-accent">Parkview Homes / KLG KIA / Pahwa Chains</p>
@@ -401,7 +400,6 @@
       <!-- 6. Projects Section -->
       <section id="projects" class="pb-20 sm:pb-28 scroll-mt-24">
         <div class="mx-auto max-w-6xl px-4">
-          <!-- Changed to flex-col on mobile for better spacing -->
           <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
               <p class="text-sm font-mono uppercase tracking-[0.2em] text-accent font-semibold">

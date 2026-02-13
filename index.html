@@ -46,7 +46,7 @@
       body { opacity: 0; transition: opacity 0.5s ease-in-out; }
     </style>
   </head>
-  <body class="bg-slate-950 text-slate-100 min-h-screen antialiased selection:bg-accent/30 selection:text-white">
+  <body class="bg-slate-950 text-slate-100 min-h-screen antialiased selection:bg-accent/30 selection:text-white overflow-x-hidden">
     
     <!-- Global background glows -->
     <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
@@ -57,9 +57,9 @@
     </div>
 
     <!-- Navigation -->
-    <header class="sticky top-0 z-50 border-b border-slate-800/80 bg-slate-950/75 backdrop-blur-xl">
+    <header class="sticky top-0 z-[100] border-b border-slate-800/80 bg-slate-950/75 backdrop-blur-xl">
       <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <a href="#hero" class="flex items-center gap-2 group z-50">
+        <a href="#hero" class="flex items-center gap-2 group z-[101]">
           <span class="rounded-full border border-slate-800 bg-slate-950/80 px-3 py-1 text-xs font-mono tracking-tight text-slate-300 shadow-sm shadow-purple-500/10 group-hover:border-accent/50 transition-colors">
             &gt; anansh.dev
           </span>
@@ -75,7 +75,7 @@
         </div>
 
         <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none z-50">
+        <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none z-[101]">
           <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -83,7 +83,7 @@
       </nav>
 
       <!-- Mobile Dropdown -->
-      <div id="mobile-menu" class="fixed inset-0 z-40 bg-slate-950/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col items-center justify-center space-y-8">
+      <div id="mobile-menu" class="fixed inset-0 z-[90] bg-slate-950/98 backdrop-blur-2xl transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col items-center justify-center space-y-8">
         <a href="#about" class="mobile-link text-xl font-mono uppercase tracking-[0.18em] text-slate-300 hover:text-accent">About</a>
         <a href="#experience" class="mobile-link text-xl font-mono uppercase tracking-[0.18em] text-slate-300 hover:text-accent">Experience</a>
         <a href="#skills" class="mobile-link text-xl font-mono uppercase tracking-[0.18em] text-slate-300 hover:text-accent">Skills</a>
@@ -96,27 +96,28 @@
       
       <!-- 1. Hero Section -->
       <section id="hero" class="pt-12 pb-16 sm:pt-20 sm:pb-24 scroll-mt-24">
-        <div class="mx-auto flex max-w-6xl flex-col gap-12 px-4 md:flex-row md:items-center">
+        <div class="mx-auto flex max-w-6xl flex-col gap-10 px-4 md:flex-row md:items-center">
+          
           <!-- Left: Text -->
-          <div class="flex-1">
+          <div class="flex-1 text-center md:text-left">
             <div class="inline-flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900/70 px-3 py-1 text-[11px] font-mono uppercase tracking-[0.22em] text-slate-300 shadow-sm shadow-purple-500/20">
               <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.9)] animate-pulse-slow"></span>
               <span>Data Science & Automation</span>
             </div>
 
-            <!-- NAME (Big) -->
-            <h1 class="mt-6 text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl">
+            <!-- NAME -->
+            <h1 class="mt-6 text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl">
               Hi, I'm <span class="text-accent">Anansh</span>.
             </h1>
 
-            <!-- PUN (Medium size) -->
-            <p class="mt-4 text-xl sm:text-2xl lg:text-3xl font-medium leading-relaxed text-slate-200">
+            <!-- PUN -->
+            <p class="mt-4 text-lg sm:text-2xl lg:text-3xl font-medium leading-relaxed text-slate-200">
               I automate the boring stuff, <br />
               <span class="text-accent/90">because life's too short for data entry.</span>
             </p>
 
             <!-- CTAs -->
-            <div class="mt-8 flex flex-wrap items-center gap-4">
+            <div class="mt-8 flex flex-wrap items-center justify-center md:justify-start gap-4">
               <a href="#projects" class="group inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white shadow-glow-accent shadow-purple-500/40 transition hover:-translate-y-0.5 hover:bg-accent/90">
                 <span>View projects</span>
                 <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10 text-[11px] transition-transform group-hover:translate-x-0.5">↓</span>
@@ -130,8 +131,8 @@
               </a>
             </div>
 
-            <!-- Quick stats / stack chips -->
-            <div class="mt-8 flex flex-wrap gap-3 text-[11px] font-mono text-slate-300">
+            <!-- Quick stats -->
+            <div class="mt-8 flex flex-wrap justify-center md:justify-start gap-3 text-[11px] font-mono text-slate-300">
               <span class="rounded-full border border-slate-800 bg-slate-900/70 px-3 py-1 text-slate-400 hover:border-slate-600 transition-colors">
                 <span class="text-accent">Python</span> · n8n · SQL · Java
               </span>
@@ -142,7 +143,7 @@
           </div>
 
           <!-- Right: System Console -->
-          <div class="flex-1 mt-12 md:mt-0 w-full">
+          <div class="flex-1 mt-6 md:mt-0 w-full">
             <div class="relative w-full max-w-lg mx-auto md:mr-0">
               <div class="pointer-events-none absolute -inset-0.5 rounded-3xl bg-gradient-to-br from-accent/60 via-fuchsia-500/40 to-sky-400/40 opacity-70 blur-3xl"></div>
               <div class="relative overflow-hidden rounded-3xl border border-slate-800/90 bg-slate-950/80 p-5 shadow-2xl shadow-purple-500/20 backdrop-blur-xl">
@@ -257,7 +258,7 @@
               </div>
 
               <!-- Spline viewer side -->
-              <div class="relative h-[350px] w-full overflow-hidden md:h-[500px] md:rounded-r-3xl bg-black order-1 md:order-2">
+              <div class="relative h-[300px] w-full overflow-hidden md:h-[500px] md:rounded-r-3xl bg-black order-1 md:order-2">
                 <spline-viewer
                   loading="lazy"
                   url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
@@ -284,9 +285,10 @@
             <!-- Job 1: CENTELLI -->
             <div class="relative pl-8 md:pl-10 group">
                <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-accent ring-4 ring-slate-950 group-hover:ring-accent/20 transition-all"></div>
-               <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+               <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-2 sm:mb-0">
                   <h3 class="text-xl font-bold text-slate-100">BI Intern</h3>
-                  <span class="text-xs font-mono text-slate-400 py-1 px-2 rounded border border-slate-800 bg-slate-900">Jan 2026 - Feb 2026</span>
+                  <!-- Added w-fit and mt-1 for mobile fix -->
+                  <span class="w-fit mt-1 sm:mt-0 text-xs font-mono text-slate-400 py-1 px-2 rounded border border-slate-800 bg-slate-900">Jan 2026 - Feb 2026</span>
                </div>
                <p class="text-sm font-medium text-accent">CENTELLI</p>
                <p class="mt-3 text-sm leading-relaxed text-slate-300 max-w-3xl">
@@ -302,9 +304,10 @@
             <!-- Job 2: C'Wealth Bank -->
             <div class="relative pl-8 md:pl-10 group">
                <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-slate-600 ring-4 ring-slate-950 group-hover:ring-slate-600/30 transition-all"></div>
-               <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+               <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-2 sm:mb-0">
                   <h3 class="text-xl font-bold text-slate-100">Data Engineering Fellowship</h3>
-                  <span class="text-xs font-mono text-slate-400 py-1 px-2 rounded border border-slate-800 bg-slate-900">Dec 2024 - Jan 2025</span>
+                  <!-- Added w-fit and mt-1 for mobile fix -->
+                  <span class="w-fit mt-1 sm:mt-0 text-xs font-mono text-slate-400 py-1 px-2 rounded border border-slate-800 bg-slate-900">Dec 2024 - Jan 2025</span>
                </div>
                <p class="text-sm font-medium text-accent">Commonwealth Bank (Job Simulation)</p>
                <p class="mt-3 text-sm leading-relaxed text-slate-300 max-w-3xl">
@@ -315,9 +318,10 @@
             <!-- Job 3: Treasurer -->
             <div class="relative pl-8 md:pl-10 group">
               <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-slate-600 ring-4 ring-slate-950 group-hover:ring-slate-600/30 transition-all"></div>
-              <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+              <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-2 sm:mb-0">
                  <h3 class="text-xl font-bold text-slate-100">Treasurer, Executive Member</h3>
-                 <span class="text-xs font-mono text-slate-400 py-1 px-2 rounded border border-slate-800 bg-slate-900">Dec 2024 - Present</span>
+                 <!-- Added w-fit and mt-1 for mobile fix -->
+                 <span class="w-fit mt-1 sm:mt-0 text-xs font-mono text-slate-400 py-1 px-2 rounded border border-slate-800 bg-slate-900">Dec 2024 - Present</span>
               </div>
               <p class="text-sm font-medium text-accent">Monash University International Students' Service</p>
               <p class="mt-3 text-sm leading-relaxed text-slate-300 max-w-3xl">
@@ -328,9 +332,10 @@
              <!-- Job 4: Operations -->
             <div class="relative pl-8 md:pl-10 group">
                <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-slate-600 ring-4 ring-slate-950 group-hover:ring-slate-600/30 transition-all"></div>
-               <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+               <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-2 sm:mb-0">
                   <h3 class="text-xl font-bold text-slate-100">Operations & Process Analyst (Intern)</h3>
-                  <span class="text-xs font-mono text-slate-400 py-1 px-2 rounded border border-slate-800 bg-slate-900">Nov 2023 - Present</span>
+                  <!-- Added w-fit and mt-1 for mobile fix -->
+                  <span class="w-fit mt-1 sm:mt-0 text-xs font-mono text-slate-400 py-1 px-2 rounded border border-slate-800 bg-slate-900">Nov 2023 - Present</span>
                </div>
                <p class="text-sm font-medium text-accent">Parkview Homes / KLG KIA / Pahwa Chains</p>
                <p class="mt-3 text-sm leading-relaxed text-slate-300 max-w-3xl">
@@ -352,7 +357,7 @@
             Engineering & Automation Tools
           </h2>
 
-          <div class="mt-10 grid gap-6 md:grid-cols-2">
+          <div class="mt-10 grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
             <!-- Column 1: Core Engineering -->
             <div class="rounded-2xl border border-slate-800 bg-slate-950/40 p-6 sm:p-8 hover:bg-slate-900/40 transition-colors">
               <h3 class="text-lg font-semibold text-white flex items-center gap-2">
@@ -396,7 +401,8 @@
       <!-- 6. Projects Section -->
       <section id="projects" class="pb-20 sm:pb-28 scroll-mt-24">
         <div class="mx-auto max-w-6xl px-4">
-          <div class="flex items-end justify-between gap-4">
+          <!-- Changed to flex-col on mobile for better spacing -->
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
               <p class="text-sm font-mono uppercase tracking-[0.2em] text-accent font-semibold">
                 Featured projects
@@ -410,7 +416,7 @@
             </a>
           </div>
 
-          <div class="mt-10 grid gap-6 md:grid-cols-2">
+          <div class="mt-10 grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
             <!-- Project 1: Email Triage -->
             <article class="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/60 p-6 sm:p-8 hover:border-accent/50 transition-all hover:shadow-lg hover:shadow-purple-500/10">
               <div class="flex gap-2 mb-4">
